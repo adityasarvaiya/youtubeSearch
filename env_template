@@ -1,0 +1,39 @@
+# Django Secret Key
+# ------------------
+SECRET_KEY=
+
+
+# Django settings module
+# -----------------------
+DJANGO_SETTINGS_MODULE=
+
+
+# Database config
+# ----------------
+POSTGRESQL_DB_NAME=
+POSTGRESQL_DB_USER=
+POSTGRESQL_DB_PASSWORD=
+POSTGRESQL_DB_HOST=
+POSTGRESQL_DB_PORT=
+
+
+# Cache Settings
+# ---------------
+CACHE_LOCATION=
+
+
+# Celery Settings
+# ----------------
+CELERY_BROKER_URL=
+CELERY_RESULT_BACKEND=
+
+
+# Admin config
+# -------------
+ADMIN_SUPERUSER_USERNAME=
+ADMIN_SUPERUSER_EMAIL=
+ADMIN_SUPERUSER_PASSWORD=
+
+
+# Youtube API Key
+YOUTUBE_API_KEY=
