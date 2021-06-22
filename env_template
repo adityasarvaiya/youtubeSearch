@@ -1,11 +1,11 @@
 # Django Secret Key
 # ------------------
-SECRET_KEY=
+SECRET_KEY=<ANY_RAMDOM_STRING>
 
 
 # Django settings module
 # -----------------------
-DJANGO_SETTINGS_MODULE=
+DJANGO_SETTINGS_MODULE=data_center.settings.development
 
 
 # Database config
@@ -13,19 +13,19 @@ DJANGO_SETTINGS_MODULE=
 POSTGRESQL_DB_NAME=
 POSTGRESQL_DB_USER=
 POSTGRESQL_DB_PASSWORD=
-POSTGRESQL_DB_HOST=
-POSTGRESQL_DB_PORT=
+POSTGRESQL_DB_HOST=db
+POSTGRESQL_DB_PORT=5432
 
 
 # Cache Settings
 # ---------------
-CACHE_LOCATION=
+CACHE_LOCATION=redis:6379
 
 
 # Celery Settings
 # ----------------
-CELERY_BROKER_URL=
-CELERY_RESULT_BACKEND=
+CELERY_BROKER_URL=redis://redis:6379/0
+CELERY_RESULT_BACKEND=redis://redis:6379/0
 
 
 # Admin config

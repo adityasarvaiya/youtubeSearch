@@ -1,4 +1,4 @@
-# data_center
+# Data Center
 
 <Your Project Description>
 
@@ -24,6 +24,12 @@ query in a paginated response. Details are as follows:
 
 ## Repo Setup
 
+1. Set Environment Values
+
+    * Copy the .env_template to .env
+    * Fill the values of .env as required
+
+
 ### Docker Setup and Run
 
 `docker-compose up --build`
@@ -38,33 +44,28 @@ If you want fine tuned run, read next section
 
     * Visit the repo and fork it
     * Clone the repo by using `git clone <repo/path>`
-    * `cd data_center`
+    * `cd youtubeSearch`
 
-2. Set Environment Values
-
-    * Copy the .env_template to .env
-    * Fill the values of .env as required
-
-3. Install requirements and pre-commit hooks
+2. Install requirements and pre-commit hooks
 
     1. Run the following command.
 
-        make install
+        `make install`
 
 
 ### Manual Setup and Run
 
 1. Install virtualenv, pre-commit hook, requirements and migration.
 
-    make install
+    `make install`
 
 2. To Runserver Locally (Not for Prod or staging):
 
-    python manage.py runserver 8000
+    `python manage.py runserver 8000`
 
     Or
 
-    make server
+    `make server`
 
     The above command will run the server on port 8000
 
