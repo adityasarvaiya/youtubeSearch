@@ -1,0 +1,5 @@
+# Test also includes common packages
+-r test.txt
+
+git-pylint-commit-hook==2.5.1
+pre-commit==2.9.3

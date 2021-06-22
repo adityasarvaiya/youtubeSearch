@@ -1,0 +1,30 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+fail_fast: true
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-merge-conflict
+    -   id: check-yaml
+    -   id: check-added-large-files
+-   repo: local
+    hooks:
+    - id: pylint
+      name: pylint
+      entry: git-pylint-commit-hook
+      language: python
+      pass_filenames: false
+      args:
+        - --ignore=migrations/*
+        - --ignore=test_files/*
+        - --always-show-violations
+    - id: unittest
+      name: unittest
+      entry: make test-cov
+      language: system
+      'types': [ python ]
+      pass_filenames: false
+      stages: [ push ]
