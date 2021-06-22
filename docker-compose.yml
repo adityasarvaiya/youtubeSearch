@@ -1,0 +1,43 @@
+version: '3.4'
+services:
+    django:
+        build: .
+        command: sh -c "wait-for db:5432 && wait-for redis:6379 && python manage.py runserver 0.0.0.0:8000"
+        ports:
+              - "8008:8000"
+        depends_on:
+            - "db"
+        env_file:
+            - ./.env
+        volumes:
+            - ./:/src/
+    redis:
+        image: redis:alpine
+        hostname: "redis"
+        ports:
+            - "6379:6379"
+        restart: on-failure
+    db:
+        image: postgres:12.0-alpine
+        volumes:
+            - postgres_data:/var/lib/postgresql/data/
+        environment:
+            - POSTGRES_DB=${POSTGRESQL_DB_NAME}
+            - POSTGRES_USER=${POSTGRESQL_DB_USER}
+            - POSTGRES_PASSWORD=${POSTGRESQL_DB_PASSWORD}
+    celery:
+        build: .
+        command: sh -c "wait-for redis:6379 && celery -A data_center.celery_app worker --loglevel info -Q youtube_default"
+        env_file:
+            - ./.env
+        volumes:
+            - ./:/src/
+    celery_beat:
+        build: .
+        command: sh -c "wait-for redis:6379 && celery beat -A data_center.celery_app -l info"
+        env_file:
+            - ./.env
+        volumes:
+            - ./:/src/
+volumes:
+  postgres_data:
